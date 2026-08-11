@@ -2010,16 +2010,14 @@
       wrapper (AppMint, Cordova, etc.) as long as the device is online when the user taps login.
 */
 const firebaseConfig = {
-  // Project: drosoy-2acb5 — apiKey/authDomain/appId/measurementId below are PLACEHOLDERS.
-  // Go to Firebase Console > Project settings > General > Your apps > Web app, and replace
-  // these 3 values with the real ones from your Web app config.
-  apiKey: "PASTE_WEB_API_KEY_HERE",
+  // Project: drosoy-2acb5 — Web app config from Firebase Console
+  apiKey: "AIzaSyAmBmggOnVcKqIy97LVcxvUq2vH1Y4k7yM",
   authDomain: "drosoy-2acb5.firebaseapp.com",
   projectId: "drosoy-2acb5",
   storageBucket: "drosoy-2acb5.firebasestorage.app",
   messagingSenderId: "801530460028",
-  appId: "PASTE_WEB_APP_ID_HERE",
-  measurementId: "PASTE_MEASUREMENT_ID_HERE"
+  appId: "1:801530460028:web:e0d84806a4be4e873b16f9",
+  measurementId: "G-TH84N85XXG"
 };
 
 let firebaseReady = false;
@@ -2237,4 +2235,8 @@ function loadData(){
       ? data.schedule.startHour24 * 60
       : null;
   }
-  if(data.schedule.endMinutes === undefined || data.schedule.endMin
+  if(data.schedule.endMinutes === undefined || data.schedule.endMinutes === null){
+    data.schedule.endMinutes = 23 * 60; // 11 مساءً افتراضيًا
+  }
+  data.classes.forEach(cls=>{
+    if(cls.monthsStart === undefined) cls.mont
