@@ -2225,6 +2225,7 @@ function loadData(){
     // data saved before onboarding existed — don't interrupt returning users
     data.onboardingDone = true;
   }
+  if(!Array.isArray(data.classes)){ data.classes = []; }
   if(!data.settings){ data.settings = { monthsStart: DEFAULT_MONTHS_START }; }
   if(!Array.isArray(data.archives)){ data.archives = []; }
   if(!data.schedule){ data.schedule = { startMinutes: null, endMinutes: null, cells: {}, columnMinutes: {} }; }
@@ -2238,5 +2239,4 @@ function loadData(){
   if(data.schedule.endMinutes === undefined || data.schedule.endMinutes === null){
     data.schedule.endMinutes = 23 * 60; // 11 مساءً افتراضيًا
   }
-  data.classes.forEach(cls=>{
-    if(cls.monthsStart === undefined) cls.mont
+  data.classes.forE
